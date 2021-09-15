@@ -13,7 +13,9 @@ client.on('ready', () => {
 client.on('message', m => {
     if (m.author.bot) return;
 
-    m.reply('care?');
+    m.channel.send('Tech Deck');
+    m.channel.send('🛹');
+    m.react('🛹');
 });
 
 client.login(token);
