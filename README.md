@@ -1,3 +1,3 @@
 # prime-lab-discord
 
-lmao whats good 
+really not much to see here just yet, just testing some things out
