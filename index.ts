@@ -1,4 +1,4 @@
-import { Client, Intents } from 'discord.js';
+import { Client, DiscordAPIError, Guild, Intents, User } from 'discord.js';
 import * as fs from 'fs';
 
 const token = fs.readFileSync('token.txt').toString();
@@ -17,7 +17,8 @@ client.on('message', m => {
     m.reply('Tech Deck');
     m.channel.send('🛹');
     m.react('🛹');
-    
 });
+
+
 
 client.login(token);
