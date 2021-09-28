@@ -12,11 +12,13 @@ client.on('ready', () => {
 
 client.on('message', m => {
     if (m.author.bot) return;
+    if(m.content.toLowerCase().includes("tech deck")){
+        m.channel.sendTyping();
+        m.reply('Tech Deck');
+        m.channel.send('🛹');
+        m.react('🛹');
+    }
 
-    m.channel.sendTyping();
-    m.reply('Tech Deck');
-    m.channel.send('🛹');
-    m.react('🛹');
 });
 
 
