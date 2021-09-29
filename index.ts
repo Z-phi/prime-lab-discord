@@ -33,8 +33,9 @@ client.on('message', m => {
             m.reply('Please tag a user.');
         }
         else {
-            m.channel.send(`${pinguser} is ${num}% funny!`);
+                m.channel.send(`${pinguser} is ${num}% funny!`);
         }
+        m.channel.send(`${num}`);
     }
 
 });
