@@ -7,35 +7,49 @@ console.log('balls');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] },);
 
+const prefix = "z "
+
 client.on('ready', () => {
     console.log('ready!');
 });
 
-client.on('message', m => {
+client.on('messageCreate', m => {
     if (m.author.bot) return;
+
     if(m.content.toLowerCase().includes("tech deck")){
         m.channel.sendTyping();
         m.reply('Tech Deck');
         m.channel.send('🛹');
         m.react('🛹');
     }
-    if(m.content.toLowerCase().includes("z cam")){
-        m.channel.sendTyping();
-        m.channel.send('Not funny.');
-    }
-    if(m.content.toLowerCase().includes("z help")){
-        m.channel.send('**Prefix:** z\n**Commands:** cam\n         funny')
-    }
-    if(m.content.toLowerCase().includes("z funny ")){
-        var num = Math.floor(Math.random() * 100) + 1;
-        var pinguser = m.mentions.users.first();
-        if (pinguser === undefined) {
-            m.reply('Please tag a user.');
+
+    if(m.content.startsWith(prefix)){
+        var fullCommand = m.content.slice(prefix.length).split(" ")
+        var command = fullCommand[0].toLowerCase();
+        var args = fullCommand.shift();
+
+        if(command == "cam") {
+            m.channel.sendTyping();
+            setTimeout(() => {m.channel.send('Not funny.')}, 4000);
         }
-        else {
-                m.channel.send(`${pinguser} is ${num}% funny!`);
+        if(command == "help"){
+            m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user]\``)
         }
-        m.channel.send(`${num}`);
+
+        if(command == "funny"){
+            var num = Math.floor(Math.random() * 100) + 1;
+            var pinguser = m.mentions.users.first();
+            if (pinguser === undefined) {
+                m.reply('Please tag a user.');
+            }
+            else {
+                if(num == 100){
+                    m.channel.send(`${pinguser} IS ${num}% FUNNY! THE ULTIMATE FUNNY! HOLY SHIT!`);
+                } else {
+                    m.channel.send(`${pinguser} is ${num}% funny!`);
+                }
+            }
+        }
     }
 
 });
