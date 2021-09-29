@@ -39,15 +39,11 @@ client.on('messageCreate', m => {
         if(command == "funny"){
             var num = Math.floor(Math.random() * 100) + 1;
             var pinguser = m.mentions.users.first();
-            if (pinguser === undefined) {
-                m.reply('Please tag a user.');
-            }
-            else {
-                if(num == 100){
-                    m.channel.send(`${pinguser} IS ${num}% FUNNY! THE ULTIMATE FUNNY! HOLY SHIT!`);
-                } else {
-                    m.channel.send(`${pinguser} is ${num}% funny!`);
-                }
+            if (pinguser === undefined) pinguser = m.author
+            if(num == 100){
+                m.channel.send(`${pinguser} IS ${num}% FUNNY! THE ULTIMATE FUNNY! HOLY SHIT!`);
+            } else {
+                m.channel.send(`${pinguser} is ${num}% funny!`);
             }
         }
     }
