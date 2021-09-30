@@ -42,7 +42,9 @@ client.on('messageCreate', m => {
             if (pinguser === undefined) pinguser = m.author
             if(num == 100){
                 m.channel.send(`${pinguser} IS ${num}% FUNNY! THE ULTIMATE FUNNY! HOLY SHIT!`);
-            } else {
+            } else if(num == 1){
+                m.channel.send(`${pinguser} is ${num}% funny...       wow.`);
+            } else { 
                 m.channel.send(`${pinguser} is ${num}% funny!`);
             }
         }
@@ -52,10 +54,10 @@ client.on('messageCreate', m => {
             if (pinguser === undefined){
                 m.channel.send('YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME');
             } else {
-                m.channel.send('${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!');
+                m.channel.send(`${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!`);
             }
+        }
     }
-
 });
 
 
