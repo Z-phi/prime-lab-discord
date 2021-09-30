@@ -33,7 +33,7 @@ client.on('messageCreate', m => {
             setTimeout(() => {m.channel.send('Not funny.')}, 4000);
         }
         if(command == "help"){
-            m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user]\``)
+            m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user], watermelon [@user]\``)
         }
 
         if(command == "funny"){
@@ -46,6 +46,14 @@ client.on('messageCreate', m => {
                 m.channel.send(`${pinguser} is ${num}% funny!`);
             }
         }
+        
+        if(command == "watermelon"){
+            var pinguser = m.mentions.users.first();
+            if (pinguser === undefined){
+                m.channel.send('YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME');
+            } else {
+                m.channel.send('${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!');
+            }
     }
 
 });
