@@ -30,7 +30,7 @@ client.on('messageCreate', m => {
 
         if(command == "cam") {
             m.channel.sendTyping();
-            setTimeout(() => {m.channel.send('Not funny.\nhttps://youtu.be/ZazNbG_3m9A')}, 4000);
+            setTimeout(() => {m.channel.send('Not funny.\n<https://youtu.be/ZazNbG_3m9A>')}, 4000);
         }
         if(command == "help"){
             m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user], watermelon [@user]\``)
