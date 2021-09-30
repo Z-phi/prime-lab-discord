@@ -30,7 +30,7 @@ client.on('messageCreate', m => {
 
         if(command == "cam") {
             m.channel.sendTyping();
-            setTimeout(() => {m.channel.send('Not funny.')}, 4000);
+            setTimeout(() => {m.channel.send('Not funny.\nhttps://youtu.be/ZazNbG_3m9A')}, 4000);
         }
         if(command == "help"){
             m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user], watermelon [@user]\``)
@@ -52,7 +52,8 @@ client.on('messageCreate', m => {
         if(command == "watermelon"){
             var pinguser = m.mentions.users.first();
             if (pinguser === undefined){
-                m.channel.send('YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME');
+                pinguser = m.author
+                m.channel.send('${pinguser} YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME!');
             } else {
                 m.channel.send(`${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!`);
             }
