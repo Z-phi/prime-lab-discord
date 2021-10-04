@@ -13,13 +13,6 @@ client.on('ready', () => {
     console.log('ready!');
 });
 
-client.on("messageUpdate", m  => {
-    //if (m.author.bot) return;
-
-    m.channel.send("Uh ohhh an edit? Someone fucked uppppp");
-    
-})
-
 client.on('messageCreate', m => {
     if (m.author.bot) return;
 
