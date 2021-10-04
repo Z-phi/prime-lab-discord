@@ -62,6 +62,18 @@ client.on('messageCreate', m => {
                 m.channel.send(`${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!`);
             }
         }
+        
+        if(command == "owoned"){
+            // Needs '' or whatever, I don't use this language
+            // Yeah so what if this is basically a watermelon copy I'm still gonna make the pr and you can't stop me
+            var pinguser = m.mentions.users.first();
+            if (pinguser === undefined){
+                pinguser = m.author
+                m.channel.send('Hey ${pinguser}, you need to owon someone by pinging them.');
+            } else {
+                m.channel.send(`Hey ${pinguser}, you just got owoned.`);
+            }
+        }
     }
 });
 
