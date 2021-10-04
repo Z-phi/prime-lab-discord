@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 const token = fs.readFileSync('token.txt').toString();
 
-console.log('balls');
+console.log('standby');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] },);
 
@@ -12,6 +12,11 @@ const prefix = "z "
 client.on('ready', () => {
     console.log('ready!');
 });
+
+client.on("messageUpdate", m  => {
+    //if (m.author.bot) return;
+    m.channel.send("Uh ohhh an edit? Someone fucked uppppp");
+})
 
 client.on('messageCreate', m => {
     if (m.author.bot) return;
