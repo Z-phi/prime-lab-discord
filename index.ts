@@ -1,4 +1,4 @@
-import { Client, DiscordAPIError, Guild, Intents, User } from 'discord.js';
+import { Client, DiscordAPIError, Guild, Intents, Message, User } from 'discord.js';
 import * as fs from 'fs';
 
 const token = fs.readFileSync('token.txt').toString();
@@ -13,11 +13,17 @@ client.on('ready', () => {
     console.log('ready!');
 });
 
+client.on("messageUpdate", m  => {
+    //if (m.author.bot) return;
+
+    m.channel.send("Uh ohhh an edit? Someone fucked uppppp");
+    
+})
+
 client.on('messageCreate', m => {
     if (m.author.bot) return;
 
     if(m.content.toLowerCase().includes("tech deck")){
-        m.channel.sendTyping();
         m.reply('Tech Deck');
         m.channel.send('🛹');
         m.react('🛹');
@@ -29,7 +35,7 @@ client.on('messageCreate', m => {
         var args = fullCommand.shift();
 
         if(command == "cam") {
-            m.channel.sendTyping();
+            setTimeout(() => {m.channel.send('...')}, 1000);
             setTimeout(() => {m.channel.send('Not funny.\n<https://youtu.be/ZazNbG_3m9A>')}, 4000);
         }
         if(command == "help"){
