@@ -13,11 +13,6 @@ client.on('ready', () => {
     console.log('ready!');
 });
 
-client.on("messageUpdate", m  => {
-    //if (m.author.bot) return;
-    m.channel.send("Uh ohhh an edit? Someone fucked uppppp");
-})
-
 client.on('messageCreate', m => {
     if (m.author.bot) return;
 
@@ -39,7 +34,7 @@ client.on('messageCreate', m => {
         if(command == "help"){
             m.channel.send(`**Prefix:** \`${prefix}\`\n**Commands:** \`cam, funny [@user], watermelon [@user]\``)
         }
-
+        
         if(command == "funny"){
             var num = Math.floor(Math.random() * 100) + 1;
             var pinguser = m.mentions.users.first();
@@ -57,7 +52,7 @@ client.on('messageCreate', m => {
             var pinguser = m.mentions.users.first();
             if (pinguser === undefined){
                 pinguser = m.author
-                m.channel.send('${pinguser} YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME!');
+                m.channel.send(`${pinguser} YOU JUST 🍉WATERMELONED🍉 YOURSELF, DINGUS! PING SOMEONE NEXT TIME!`);
             } else {
                 m.channel.send(`${pinguser} YOU JUST GOT 🍉WATERMELONED🍉!`);
             }
